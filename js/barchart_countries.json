@@ -1,0 +1,60 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+  "data": {
+    "url": "https://raw.githubusercontent.com/dtan0032/FIT3179_A2/main/data/master_updated.csv"
+  },
+  "params": [
+    {
+      "name": "Population_Above",
+      "value": 0,
+      "bind": {
+        "input": "range",
+        "min": 0,
+        "max": 30000000,
+        "step": 10000,
+        "name": "Minimum Population: "
+      }
+    },
+    {
+      "name": "Continent_selection",
+      "bind": {
+        "input": "select",
+        "options": [null, "Europe", "Americas", "Asia", "Oceania", "Africa"],
+        "labels": [
+          "Show All",
+          "Europe",
+          "Americas",
+          "Asia",
+          "Oceania",
+          "Africa"
+        ],
+        "name": "Continent Selection: "
+      }
+    }
+  ],
+  "transform": [
+    {"filter": "datum.population > Population_Above"},
+    {
+      "filter": "Continent_selection == null || datum.continent == Continent_selection"
+    },
+    {
+      "aggregate": [
+        {"op": "average", "field": "suicides/100k pop", "as": "suicide rates"},
+        {"op": "average", "field": "population", "as": "population"}
+      ],
+      "groupby": ["age", "country"]
+    }
+  ],
+  "mark": {"type": "bar"},
+  "encoding": {
+    "x": {
+      "field": "country",
+      "type": "nominal",
+      "title": "Country",
+      "sort": "-y"
+    },
+    "y": {"field": "suicide rates", "type": "quantitative"},
+    "color": {"field": "age"}
+  },
+  "config": {}
+}
