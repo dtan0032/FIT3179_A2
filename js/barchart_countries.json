@@ -45,7 +45,7 @@
       "groupby": ["age", "country"]
     }
   ],
-  "mark": {"type": "bar"},
+  "mark": {"type": "bar","tooltip":true},
   "encoding": {
     "x": {
       "field": "country",
