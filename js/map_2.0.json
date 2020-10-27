@@ -3,14 +3,14 @@
   "title": "Mean Suicide rates per 100K (1987 to 2014)",
   "width": 800,
   "height": 600,
-  "projection": {"type":"equalEarth"},
+  "projection": {"type": "equalEarth"},
   "layer": [
     {
       "data": {
         "url": "https://raw.githubusercontent.com/dtan0032/FIT3179_A2/main/js/ne_110m_graticules_30.json",
         "format": {"type": "topojson", "feature": "ne_110m_graticules_30"}
       },
-      "mark": {"type": "geoshape", "fill": "null", "stroke":"lightgray"}
+      "mark": {"type": "geoshape", "fill": "null", "stroke": "lightgray"}
     },
     {
       "data": {
@@ -62,69 +62,64 @@
       ]
     },
     {
-      "data": {
-         "values": [{}]
-      },
-      "encoding": {"latitude":{"datum": 0
-      },
-      "longitude": {"datum": -160
-      }},
+      "data": {"values": [{}]},
+      "encoding": {"latitude": {"datum": 0}, "longitude": {"datum": -160}},
       "layer": [
-      {
-        "mark": {
-          "type": "text",
-          "align": "left",
-          "baseline":"top",
-          "dx": 0,
-          "dy": 0,
-          "x":"width",
-          "text": "Grey",
-          "color":"#999999",
-          "fontSize": 15,
-          "fontStyle":"bold"
+        {
+          "mark": {
+            "type": "text",
+            "align": "left",
+            "baseline": "top",
+            "dx": 0,
+            "dy": 0,
+            "x": "width",
+            "text": "Grey",
+            "color": "#999999",
+            "fontSize": 15,
+            "fontStyle": "bold"
+          }
+        },
+        {
+          "mark": {
+            "type": "text",
+            "align": "left",
+            "baseline": "top",
+            "dx": 37,
+            "dy": 0,
+            "x": "width",
+            "text": "coloured countries ",
+            "fontSize": 15,
+            "fontStyle": "bold"
+          }
+        },
+        {
+          "mark": {
+            "type": "text",
+            "align": "left",
+            "baseline": "top",
+            "dx": 0,
+            "dy": 15,
+            "x": "width",
+            "text": "do not have data due to ",
+            "fontSize": 15,
+            "fontStyle": "bold"
+          }
+        },
+        {
+          "mark": {
+            "type": "text",
+            "align": "left",
+            "baseline": "top",
+            "dx": 0,
+            "dy": 30,
+            "x": "width",
+            "text": "dataset limitations.",
+            "fontSize": 15,
+            "fontStyle": "bold"
+          }
         }
-      },
-      {
-        "mark": {
-          "type": "text",
-          "align":"left",
-          "baseline":"top",
-          "dx": 37,
-          "dy": 0,
-          "x": "width",
-          "text": "coloured countries ",
-          "fontSize": 15,
-          "fontStyle":"bold"
-        }
-      },
-      {
-        "mark": {
-          "type": "text",
-          "align": "left",
-          "baseline": "top",
-          "dx": 0,
-          "dy": 15,
-          "x": "width",
-          "text": "do not have data due to ",
-          "fontSize": 15,
-          "fontStyle":"bold"
-        }
-      },
-      {
-        "mark": {
-          "type": "text",
-          "align": "left",
-          "baseline": "top",
-          "dx": 0,
-          "dy": 30,
-          "x": "width",
-          "text": "dataset limitations.",
-          "fontSize": 15,
-          "fontStyle":"bold"
-        }
-      }]
+      ]
     }
-
   ],
   "config": {}
 }
