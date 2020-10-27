@@ -1,0 +1,20 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+  "description": "A simple pie chart with embedded data.",
+  "data": {
+    "url": "https://raw.githubusercontent.com/dtan0032/FIT3179_A2/main/data/master_updated.csv"
+  },
+  "transform": [
+    {
+      "aggregate": [{"op": "sum", "field": "suicides_no", "as": "suicides_no"}],
+      "groupby": ["sex"]
+    }
+  ],
+  "mark": "arc",
+  "encoding": {
+    "theta": {"field": "suicides_no", "type": "quantitative"},
+    "color": {"field": "sex", "type": "nominal", "title": "Sex"}
+  },
+  "view": {"stroke": null},
+  "config": {}
+}

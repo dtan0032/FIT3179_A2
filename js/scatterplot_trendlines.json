@@ -1,0 +1,102 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+  "data": {
+    "url": "https://raw.githubusercontent.com/dtan0032/FIT3179_A2/main/data/master_updated.csv"
+  },
+  "height": 400,
+  "width": 900,
+  "transform": [
+    {
+      "aggregate": [
+        {"op": "average", "field": "suicides_no", "as": "Suicide Numbers"},
+        {"op": "average", "field": "HDI for year", "as": "HDI"}
+      ],
+      "groupby": ["country", "continent"]
+    }
+  ],
+  "layer": [
+    {
+      "mark": {"type": "line", "color": "steelblue"},
+      "transform": [
+        {"filter": {"field": "continent", "equal": "Africa"}},
+        {"regression": "Suicide Numbers", "on": "HDI"}
+      ],
+      "encoding": {
+        "x": {"field": "HDI", "type": "quantitative"},
+        "y": {"field": "Suicide Numbers", "type": "quantitative"}
+      }
+    },
+    {
+      "mark": {"type": "line", "color": "orange"},
+      "transform": [
+        {"filter": {"field": "continent", "equal": "Americas"}},
+        {"regression": "Suicide Numbers", "on": "HDI"}
+      ],
+      "encoding": {
+        "x": {"field": "HDI", "type": "quantitative"},
+        "y": {"field": "Suicide Numbers", "type": "quantitative"}
+      }
+    },
+    {
+      "mark": {"type": "line", "color": "indianred"},
+      "transform": [
+        {"filter": {"field": "continent", "equal": "Asia"}},
+        {"regression": "Suicide Numbers", "on": "HDI"}
+      ],
+      "encoding": {
+        "x": {"field": "HDI", "type": "quantitative"},
+        "y": {"field": "Suicide Numbers", "type": "quantitative"}
+      }
+    },
+    {
+      "mark": {"type": "line", "color": "powderblue"},
+      "transform": [
+        {"filter": {"field": "continent", "equal": "Europe"}},
+        {"regression": "Suicide Numbers", "on": "HDI"}
+      ],
+      "encoding": {
+        "x": {"field": "HDI", "type": "quantitative"},
+        "y": {"field": "Suicide Numbers", "type": "quantitative"}
+      }
+    },
+    {
+      "mark": {"type": "line", "color": "yellowgreen"},
+      "transform": [
+        {"filter": {"field": "continent", "equal": "Oceania"}},
+        {"regression": "Suicide Numbers", "on": "HDI"}
+      ],
+      "encoding": {
+        "x": {"field": "HDI", "type": "quantitative"},
+        "y": {"field": "Suicide Numbers", "type": "quantitative"}
+      }
+    },
+    {
+      "mark": {"type": "line", "color": "black"},
+      "transform": [{"regression": "Suicide Numbers", "on": "HDI"}],
+      "encoding": {
+        "x": {"field": "HDI", "type": "quantitative"},
+        "y": {"field": "Suicide Numbers", "type": "quantitative"}
+      }
+    },
+    {
+      "mark": {
+        "type": "point",
+        "filled": true,
+        "size": 100,
+        "opacity": 0.7,
+        "tooltip": true
+      },
+      "encoding": {
+        "detail": {"field": "country", "type": "nominal"},
+        "x": {
+          "field": "HDI",
+          "type": "quantitative",
+          "scale": {"domain": [0.5, 1]}
+        },
+        "y": {"field": "Suicide Numbers", "type": "quantitative"},
+        "color": {"field": "continent", "type": "nominal"}
+      }
+    }
+  ],
+  "config": {}
+}

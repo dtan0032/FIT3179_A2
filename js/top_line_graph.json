@@ -1,0 +1,23 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+  "description": "Google's stock price over time.",
+  "width": 900,
+  "height": 200,
+  "data": {
+    "url": "https://raw.githubusercontent.com/dtan0032/FIT3179_A2/main/data/master_updated.csv"
+  },
+  "transform": [
+    {
+      "aggregate": [
+        {"op": "sum", "field": "suicides_no", "as": "Suicide Numbers"}
+      ],
+      "groupby": ["year"]
+    }
+  ],
+  "mark": "line",
+  "encoding": {
+    "x": {"field": "year", "type": "temporal"},
+    "y": {"field": "Suicide Numbers", "type": "quantitative"}
+  },
+  "config": {}
+}
