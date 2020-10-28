@@ -5,17 +5,6 @@
   },
   "params": [
     {
-      "name": "Population_Above",
-      "value": 0,
-      "bind": {
-        "input": "range",
-        "min": 0,
-        "max": 30000000,
-        "step": 10000,
-        "name": "Minimum Population: "
-      }
-    },
-    {
       "name": "Continent_selection",
       "bind": {
         "input": "select",
@@ -33,7 +22,6 @@
     }
   ],
   "transform": [
-    {"filter": "datum.population > Population_Above"},
     {
       "filter": "Continent_selection == null || datum.continent == Continent_selection"
     },
@@ -42,8 +30,16 @@
         {"op": "average", "field": "suicides/100k pop", "as": "suicide rates"},
         {"op": "average", "field": "population", "as": "population"}
       ],
-      "groupby": ["sex", "country"]
-    }
+      "groupby": ["country"]
+    },
+     {
+      "window": [{
+        "op": "rank",
+        "as": "rank"
+      }],
+      "sort": [{ "field": "suicide rates", "order": "descending" }]
+    }, {
+      "filter": "datum.rank <= 10"}
   ],
   "mark": {"type": "bar", "tooltip": true},
   "encoding": {
@@ -54,7 +50,12 @@
       "sort": "-x"
     },
     "x": {"field": "suicide rates", "type": "quantitative"},
-    "color": {"field": "sex"}
+    "color":{"condition": [{"test": "datum['rank'] == 1", "value": "indianred"},
+            {"test": "datum['rank'] == 2", "value": "orange"},
+            {"test": "datum['rank'] == 3", "value": "#e1ad01"}
+            ],
+          "value": "lightgrey"
+    }
   },
   "config": {}
 }
