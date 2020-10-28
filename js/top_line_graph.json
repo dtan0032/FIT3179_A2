@@ -9,15 +9,134 @@
   "transform": [
     {
       "aggregate": [
-        {"op": "sum", "field": "suicides_no", "as": "Suicide Numbers"}
+        {"op": "sum", "field": "suicides/100k pop", "as": "Suicides /100k Population"}
       ],
       "groupby": ["year"]
     }
   ],
-  "mark": "line",
-  "encoding": {
-    "x": {"field": "year", "type": "temporal"},
-    "y": {"field": "Suicide Numbers", "type": "quantitative"}
-  },
+  "layer":[{
+    "mark": {"type":"line","point": {
+      "filled": false,
+      "fill": "black"},
+      "tooltip":true},
+    "encoding": {
+      "x": {"field": "year",
+        "type": "ordinal",
+        "axis": {
+          "grid": false,
+          "labelAngle":90
+          },
+          "title":"Year"
+        },
+      "y": {"field": "Suicides /100k Population", 
+        "type": "quantitative",
+        "axis": {"grid": false}},
+      "color":{"value":"black"}}
+    },
+    {
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "dx": -80,
+        "dy": -80,
+        "text": "1995",
+        "color": "indianred",
+        "fontSize": 15
+      }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "dx": -120,
+        "dy": -81,
+        "text": "Year :",
+        "color": "black",
+        "fontSize": 15
+      }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "dx": 10,
+        "dy": -65,
+        "text": "14660",
+        "color": "indianred",
+        "fontSize": 15
+      }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "dx": -120,
+        "dy": -66,
+        "text": "Suicides/100K Pop: ",
+        "color": "black",
+        "fontSize": 15
+      }
+    },
+    
+
+
+    {
+      "mark": {
+        "type": "text",
+        "align": "right",
+        "dx": 305,
+        "dy": 0,
+        "text": "2015",
+        "color": "limegreen",
+        "fontSize": 15
+      }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "align": "right",
+        "dx": 269,
+        "dy": 0,
+        "text": "Year :",
+        "color": "black",
+        "fontSize": 15
+      }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "align": "right",
+        "dx": 305,
+        "dy": 16,
+        "text": "8254",
+        "color": "limegreen",
+        "fontSize": 15
+      }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "dx": 138,
+        "dy": 16,
+        "text": "Suicides/100K Pop: ",
+        "color": "black",
+        "fontSize": 15
+      }
+    },
+
+    {
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "dx": 170,
+        "dy": 110,
+        "text": "Incomplete data in 2016 ",
+        "color": "grey",
+        "fontSize": 15,
+        "fontStyle":"italic"
+      }
+    }
+  ],
   "config": {}
 }
