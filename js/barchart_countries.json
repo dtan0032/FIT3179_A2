@@ -42,19 +42,19 @@
         {"op": "average", "field": "suicides/100k pop", "as": "suicide rates"},
         {"op": "average", "field": "population", "as": "population"}
       ],
-      "groupby": ["age", "country"]
+      "groupby": ["sex", "country"]
     }
   ],
-  "mark": {"type": "bar","tooltip":true},
+  "mark": {"type": "bar", "tooltip": true},
   "encoding": {
-    "x": {
+    "y": {
       "field": "country",
       "type": "nominal",
       "title": "Country",
-      "sort": "-y"
+      "sort": "-x"
     },
-    "y": {"field": "suicide rates", "type": "quantitative"},
-    "color": {"field": "age"}
+    "x": {"field": "suicide rates", "type": "quantitative"},
+    "color": {"field": "sex"}
   },
   "config": {}
 }
