@@ -12,70 +12,16 @@
         {"op": "average", "field": "HDI for year", "as": "HDI"}
       ],
       "groupby": ["country", "continent"]
-    }
+    },
+    {"filter": {"field": "Suicide Numbers","lte":1000}}
   ],
   "layer": [
-    {
-      "mark": {"type": "line", "color": "steelblue"},
-      "transform": [
-        {"filter": {"field": "continent", "equal": "Africa"}},
-        {"regression": "Suicide Numbers", "on": "HDI"}
-      ],
-      "encoding": {
-        "x": {"field": "HDI", "type": "quantitative"},
-        "y": {"field": "Suicide Numbers", "type": "quantitative"}
-      }
-    },
-    {
-      "mark": {"type": "line", "color": "orange"},
-      "transform": [
-        {"filter": {"field": "continent", "equal": "Americas"}},
-        {"regression": "Suicide Numbers", "on": "HDI"}
-      ],
-      "encoding": {
-        "x": {"field": "HDI", "type": "quantitative"},
-        "y": {"field": "Suicide Numbers", "type": "quantitative"}
-      }
-    },
-    {
-      "mark": {"type": "line", "color": "indianred"},
-      "transform": [
-        {"filter": {"field": "continent", "equal": "Asia"}},
-        {"regression": "Suicide Numbers", "on": "HDI"}
-      ],
-      "encoding": {
-        "x": {"field": "HDI", "type": "quantitative"},
-        "y": {"field": "Suicide Numbers", "type": "quantitative"}
-      }
-    },
-    {
-      "mark": {"type": "line", "color": "powderblue"},
-      "transform": [
-        {"filter": {"field": "continent", "equal": "Europe"}},
-        {"regression": "Suicide Numbers", "on": "HDI"}
-      ],
-      "encoding": {
-        "x": {"field": "HDI", "type": "quantitative"},
-        "y": {"field": "Suicide Numbers", "type": "quantitative"}
-      }
-    },
-    {
-      "mark": {"type": "line", "color": "yellowgreen"},
-      "transform": [
-        {"filter": {"field": "continent", "equal": "Oceania"}},
-        {"regression": "Suicide Numbers", "on": "HDI"}
-      ],
-      "encoding": {
-        "x": {"field": "HDI", "type": "quantitative"},
-        "y": {"field": "Suicide Numbers", "type": "quantitative"}
-      }
-    },
     {
       "mark": {"type": "line", "color": "black"},
       "transform": [{"regression": "Suicide Numbers", "on": "HDI"}],
       "encoding": {
         "x": {"field": "HDI", "type": "quantitative"},
-        "y": {"field": "Suicide Numbers", "type": "quantitative"}
+        "y": {"field": "Suicide Numbers", "type": "quantitative","scale": {"domain": [-100,1000]}}
       }
     },
     {
@@ -95,6 +41,17 @@
         },
         "y": {"field": "Suicide Numbers", "type": "quantitative"},
         "color": {"field": "continent", "type": "nominal"}
+      }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "dx": -130,
+        "dy": -80,
+        "text": "Japan and USA was removed as they distorted the regression too much ",
+        "color": "black",
+        "fontSize": 15
       }
     }
   ],
