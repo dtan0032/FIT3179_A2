@@ -3,8 +3,6 @@
   "data": {
     "url": "https://raw.githubusercontent.com/dtan0032/FIT3179_A2/main/data/master_updated.csv"
   },
-  "width":400,
-  "height":350,
   "params": [
     {
       "name": "Continent_selection",
