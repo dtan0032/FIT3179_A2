@@ -87,7 +87,7 @@
         "dx": 305,
         "dy": 0,
         "text": "2015",
-        "color": "limegreen",
+        "color": "#e4af45",
         "fontSize": 15
       }
     },
@@ -109,7 +109,7 @@
         "dx": 305,
         "dy": 16,
         "text": "8254",
-        "color": "limegreen",
+        "color": "#e4af45",
         "fontSize": 15
       }
     },
