@@ -1,7 +1,12 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
   "width": 300,
-  "height": 380,
+  "height": 350,
+  "title": {
+    "text": "Countries in Top 10 Suicide Rates",
+    "anchor":"middle",
+    "fontSize":20
+    },
   "data": {
     "url": "https://raw.githubusercontent.com/dtan0032/FIT3179_A2/main/data/master_updated.csv"
   },
@@ -29,7 +34,7 @@
     },
     {
       "aggregate": [
-        {"op": "average", "field": "suicides/100k pop", "as": "suicide rates"},
+        {"op": "average", "field": "suicides/100k pop", "as": "Suicides /100k Population"},
         {"op": "average", "field": "population", "as": "population"}
       ],
       "groupby": ["country"]
@@ -39,7 +44,7 @@
         "op": "rank",
         "as": "rank"
       }],
-      "sort": [{ "field": "suicide rates", "order": "descending" }]
+      "sort": [{ "field": "Suicides /100k Population", "order": "descending" }]
     }, {
       "filter": "datum.rank <= 10"}
   ],
@@ -51,12 +56,10 @@
       "title": "Country",
       "sort": "-x"
     },
-    "x": {"field": "suicide rates", "type": "quantitative"},
-    "color":{"condition": [{"test": "datum['rank'] == 1", "value": "indianred"},
-            {"test": "datum['rank'] == 2", "value": "orange"},
-            {"test": "datum['rank'] == 3", "value": "#e1ad01"}
+    "x": {"field": "Suicides /100k Population", "type": "quantitative"},
+    "color":{"condition": [{"test": "datum['rank'] == 1", "value": "#cc4c02"}
             ],
-          "value": "lightgrey"
+          "value": "#fecd68"
     }
   },
   "config": {}
