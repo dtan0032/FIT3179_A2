@@ -4,17 +4,48 @@
   "data": {
     "url": "https://raw.githubusercontent.com/dtan0032/FIT3179_A2/main/data/master_updated.csv"
   },
+  "width":300,
+  "height":300,
+  "title":{
+    "text": "Suicide Ratio by Gender",
+    "anchor":"middle",
+    "fontSize":25
+    },
   "transform": [
     {
       "aggregate": [{"op": "sum", "field": "suicides_no", "as": "suicides_no"}],
       "groupby": ["sex"]
     }
   ],
+  "layer":[{
   "mark": "arc",
   "encoding": {
     "theta": {"field": "suicides_no", "type": "quantitative"},
-    "color": {"field": "sex", "type": "nominal", "title": "Sex"}
+    "color": {"field": "sex", "type": "nominal", "title": "Sex","scale":{"range":["#fee391","#fecd68"]},"legend":null}
+    } 
   },
+  {
+    "mark": {
+        "type": "text",
+        "align": "left",
+        "dx": -105,
+        "dy": 55,
+        "text": "Male: 76.9%",
+        "color": "black",
+        "fontSize": 25
+    }
+  },
+  {
+    "mark": {
+        "type": "text",
+        "align": "left",
+        "dx": 15,
+        "dy": -70,
+        "text": "Female: 23.1%",
+        "color": "black",
+        "fontSize": 15
+    }
+  }],
   "view": {"stroke": null},
   "config": {}
 }
