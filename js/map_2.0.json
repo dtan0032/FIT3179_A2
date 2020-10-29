@@ -68,7 +68,7 @@
     },
     {
       "data": {"values": [{}]},
-      "encoding": {"latitude": {"datum": 0}, "longitude": {"datum": -160}},
+      "encoding": {"latitude": {"datum": -25}, "longitude": {"datum": -175}},
       "layer": [
         {
           "mark": {
