@@ -47,5 +47,5 @@
     }
   }],
   "view": {"stroke": null},
-  "config": {}
+  "config": {"background":"#ffffe5"}
 }
