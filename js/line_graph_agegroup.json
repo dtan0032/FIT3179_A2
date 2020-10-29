@@ -5,12 +5,12 @@
     "url": "https://raw.githubusercontent.com/dtan0032/FIT3179_A2/main/data/master_updated.csv"
   },
   "height": 300,
-  "width": 400,
+  "width": 600,
   "layer": [
     {
       "mark": {"type": "line", "point": true, "tooltip": true},
       "encoding": {
-        "x": {"field": "year", "type": "ordinal", "title": "Year"},
+        "x": {"field": "year", "type": "ordinal", "title": "Year","axis":{"grid":false,"labelAngle":-45}},
         "y": {
           "aggregate": "sum",
           "field": "suicides_no",
