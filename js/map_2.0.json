@@ -1,8 +1,8 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
   "title": "Mean Suicide rates per 100K (1987 to 2014)",
-  "width": 900,
-  "height": 450,
+  "width": 650,
+  "height": 400,
   "projection": {"type": "equirectangular"},
   "layer": [
     {
