@@ -8,30 +8,19 @@
   "transform": [
     {
       "aggregate": [
-        {"op": "average", "field": "suicides_no", "as": "Suicide Numbers"},
+        {"op": "average", "field": "suicides/100k pop", "as": "suicides/100k pop"},
         {"op": "average", "field": "HDI for year", "as": "HDI"}
       ],
       "groupby": ["country", "continent"]
-    },
-    {"filter": {"field": "Suicide Numbers","lte":1000}}
+    }
   ],
   "layer": [
     {
       "mark": {"type": "line", "color": "black"},
-      "transform": [{"regression": "Suicide Numbers", "on": "HDI"}],
+      "transform": [{"regression": "suicides/100k pop", "on": "HDI"}],
       "encoding": {
         "x": {"field": "HDI", "type": "quantitative"},
-        "y": {"field": "Suicide Numbers", "type": "quantitative","scale": {"domain": [-100,1000]}}
-      }
-    },
-    {
-      "mark": {"type": "rule", "color": "red"},
-      "encoding": {
-        "x": {
-          "aggregate": "average",
-          "field": "AverageRating",
-          "type": "quantitative"
-        }
+        "y": {"field": "suicides/100k pop", "type": "quantitative"}
       }
     },
     {
@@ -47,45 +36,12 @@
         "x": {
           "field": "HDI",
           "type": "quantitative",
-          "scale": {"domain": [0.58, 0.95]},
-          "axis":{"grid": false}
+          "axis":{"grid": false},
+          "title":"Human Development Index"
         },
-        "y": {"field": "Suicide Numbers", "type": "quantitative",
-          "axis":{"grid": false}},
-        "color": {"field": "continent", "type": "nominal"}
-      }
-    },
-    {
-      "mark": {
-        "type": "text",
-        "align": "left",
-        "dx": -260,
-        "dy": -90,
-        "text": "Japan and United States of America",
-        "color": "grey",
-        "fontSize": 15
-      }
-    },
-    {
-      "mark": {
-        "type": "text",
-        "align": "left",
-        "dx": -260,
-        "dy": -75,
-        "text": " were removed as values",
-        "color": "grey",
-        "fontSize": 15
-      }
-    },
-    {
-      "mark": {
-        "type": "text",
-        "align": "left",
-        "dx": -260,
-        "dy": -60,
-        "text": "distorted the graph",
-        "color": "grey",
-        "fontSize": 15
+        "y": {"field": "suicides/100k pop", "type": "quantitative",
+          "axis":{"grid": false}, "title":"Suicides/100K population"},
+        "color": {"field": "continent", "type": "nominal", "title":"Continent"}
       }
     }
   ],
