@@ -12,10 +12,10 @@
       "encoding": {
         "x": {"field": "year", "type": "ordinal", "title": "Year","axis":{"grid":false,"labelAngle":-45}},
         "y": {
-          "aggregate": "sum",
-          "field": "suicides_no",
+          "aggregate": "average",
+          "field": "suicides/100k pop",
           "type": "quantitative",
-          "title": "Sum of suicides per year",
+          "title": "Average of suicides/100k Population",
           "axis":{"grid":false}
         },
         "color": {"field": "age", "type": "nominal"}
@@ -25,9 +25,9 @@
       "mark": {
         "type": "text",
         "align": "left",
-        "dx": -39,
-        "dy": -80,
-        "text": "35-54 years old ",
+        "dx": 41,
+        "dy": -100,
+        "text": "75+ years old ",
         "color": "indianred",
         "fontSize": 15
       }
@@ -36,8 +36,8 @@
       "mark": {
         "type": "text",
         "align": "left",
-        "dx": -130,
-        "dy": -80,
+        "dx": -50,
+        "dy": -100,
         "text": "Age group of ",
         "color": "black",
         "fontSize": 15
@@ -47,8 +47,8 @@
       "mark": {
         "type": "text",
         "align": "left",
-        "dx": 67,
-        "dy": -80,
+        "dx": 135,
+        "dy": -100,
         "text": " were consistently ",
         "color": "black",
         "fontSize": 15
@@ -58,8 +58,8 @@
       "mark": {
         "type": "text",
         "align": "left",
-        "dx": 40,
-        "dy": -65,
+        "dx": 80,
+        "dy": -85,
         "text": "higher than all other age groups.",
         "color": "black",
         "fontSize": 15
