@@ -1,68 +1,47 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
-  "description": "Stock prices of 5 Tech Companies over Time.",
   "data": {
     "url": "https://raw.githubusercontent.com/dtan0032/FIT3179_A2/main/data/master_updated.csv"
   },
+  "width": 550,
   "height": 300,
-  "width": 600,
+  "transform": [
+    {
+      "aggregate": [
+        {"op": "average", "field": "suicides/100k pop", "as": "suicides/100k pop"},
+        {"op": "average", "field": "HDI for year", "as": "HDI"}
+      ],
+      "groupby": ["country", "continent"]
+    }
+  ],
   "layer": [
     {
-      "mark": {"type": "line", "point": true, "tooltip": true},
+      "mark": {"type": "line", "color": "black"},
+      "transform": [{"regression": "suicides/100k pop", "on": "HDI"}],
       "encoding": {
-        "x": {"field": "year", "type": "ordinal", "title": "Year","axis":{"grid":false,"labelAngle":-45}},
-        "y": {
-          "aggregate": "average",
-          "field": "suicides/100k pop",
+        "x": {"field": "HDI", "type": "quantitative"},
+        "y": {"field": "suicides/100k pop", "type": "quantitative"}
+      }
+    },
+    {
+      "mark": {
+        "type": "point",
+        "filled": true,
+        "size": 120,
+        "opacity": 0.7,
+        "tooltip": true
+      },
+      "encoding": {
+        "detail": {"field": "country", "type": "nominal", "title": "Country"},
+        "x": {
+          "field": "HDI",
           "type": "quantitative",
-          "title": "Average of suicides/100k Population",
-          "axis":{"grid":false}
+          "axis":{"grid": false},
+          "title":"Human Development Index"
         },
-        "color": {"field": "age", "type": "nominal"}
-      }
-    },
-    {
-      "mark": {
-        "type": "text",
-        "align": "left",
-        "dx": 41,
-        "dy": -100,
-        "text": "75+ years old ",
-        "color": "indianred",
-        "fontSize": 15
-      }
-    },
-    {
-      "mark": {
-        "type": "text",
-        "align": "left",
-        "dx": -50,
-        "dy": -100,
-        "text": "Age group of ",
-        "color": "black",
-        "fontSize": 15
-      }
-    },
-    {
-      "mark": {
-        "type": "text",
-        "align": "left",
-        "dx": 135,
-        "dy": -100,
-        "text": " were consistently ",
-        "color": "black",
-        "fontSize": 15
-      }
-    },
-    {
-      "mark": {
-        "type": "text",
-        "align": "left",
-        "dx": 80,
-        "dy": -85,
-        "text": "higher than all other age groups.",
-        "color": "black",
-        "fontSize": 15
+        "y": {"field": "suicides/100k pop", "type": "quantitative",
+          "axis":{"grid": false}, "title":"Suicides/100K population"},
+        "color": {"field": "continent", "type": "nominal", "title":"Continent"}
       }
     }
   ],
