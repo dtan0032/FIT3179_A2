@@ -28,18 +28,20 @@
       "mark": {
         "type": "point",
         "filled": true,
-        "size": 100,
+        "size": 120,
         "opacity": 0.7,
         "tooltip": true
       },
       "encoding": {
-        "detail": {"field": "country", "type": "nominal"},
+        "detail": {"field": "country", "type": "nominal", "title": "Country"},
         "x": {
           "field": "HDI",
           "type": "quantitative",
-          "scale": {"domain": [0.5, 1]}
+          "scale": {"domain": [0.58, 0.95]},
+          "axis":{"grid": false}
         },
-        "y": {"field": "Suicide Numbers", "type": "quantitative"},
+        "y": {"field": "Suicide Numbers", "type": "quantitative",
+          "axis":{"grid": false}},
         "color": {"field": "continent", "type": "nominal"}
       }
     },
@@ -47,10 +49,32 @@
       "mark": {
         "type": "text",
         "align": "left",
-        "dx": -130,
-        "dy": -80,
-        "text": "Japan and USA was removed as they distorted the regression too much ",
-        "color": "black",
+        "dx": -330,
+        "dy": -90,
+        "text": "Japan and United States of America",
+        "color": "grey",
+        "fontSize": 15
+      }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "dx": -330,
+        "dy": -75,
+        "text": " were removed as values",
+        "color": "grey",
+        "fontSize": 15
+      }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "dx": -330,
+        "dy": -60,
+        "text": "distorted the graph",
+        "color": "grey",
         "fontSize": 15
       }
     }
