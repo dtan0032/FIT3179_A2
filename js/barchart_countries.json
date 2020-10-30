@@ -39,6 +39,13 @@
       ],
       "groupby": ["country"]
     },
+    {
+      "joinaggregate": [{
+        "op": "mean",
+        "field": "Suicides /100k Population",
+        "as": "Suicides /100k Population Average"
+      }]
+    },
      {
       "window": [{
         "op": "rank",
@@ -48,19 +55,31 @@
     }, {
       "filter": "datum.rank <= 10"}
   ],
-  "mark": {"type": "bar", "tooltip": true},
-  "encoding": {
-    "y": {
-      "field": "country",
-      "type": "nominal",
-      "title": "Country",
-      "sort": "-x"
-    },
-    "x": {"field": "Suicides /100k Population", "type": "quantitative"},
-    "color":{"condition": [{"test": "datum['rank'] == 1", "value": "#cc4c02"}
-            ],
-          "value": "#fecd68"
+  "layer":[{
+    "mark": {"type": "bar", "tooltip": true},
+    "encoding": {
+      "y": {
+        "field": "country",
+        "type": "nominal",
+        "title": "Country",
+        "sort": "-x"
+      },
+      "x": {"field": "Suicides /100k Population", "type": "quantitative"},
+      "color":{"condition": [{"test": "datum['rank'] == 1", "value": "#cc4c02"}
+              ],
+            "value": "#fecd68"
+      }
     }
   },
+  {
+      "mark": {"type": "rule", "color": "Black","size":1},"title":null,
+      "encoding": {
+        "x": {
+          "aggregate": "average",
+          "field": "Suicides /100k Population Average",
+          "type": "quantitative"
+        }
+      }
+    }],
   "config": {"background":"#fff5e8"}
 }
