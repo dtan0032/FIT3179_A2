@@ -1,7 +1,7 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
   "width": 300,
-  "height": 350,
+  "height": 300,
   "title": {
     "text": "Countries in Top 10 Suicide Rates",
     "anchor":"middle",
