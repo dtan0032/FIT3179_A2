@@ -59,7 +59,7 @@
       "mark": {
         "type": "text",
         "align": "left",
-        "dx": -330,
+        "dx": -260,
         "dy": -90,
         "text": "Japan and United States of America",
         "color": "grey",
@@ -70,7 +70,7 @@
       "mark": {
         "type": "text",
         "align": "left",
-        "dx": -330,
+        "dx": -260,
         "dy": -75,
         "text": " were removed as values",
         "color": "grey",
@@ -81,7 +81,7 @@
       "mark": {
         "type": "text",
         "align": "left",
-        "dx": -330,
+        "dx": -260,
         "dy": -60,
         "text": "distorted the graph",
         "color": "grey",
