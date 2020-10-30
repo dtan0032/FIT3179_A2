@@ -25,6 +25,16 @@
       }
     },
     {
+      "mark": {"type": "rule", "color": "red"},
+      "encoding": {
+        "x": {
+          "aggregate": "average",
+          "field": "AverageRating",
+          "type": "quantitative"
+        }
+      }
+    },
+    {
       "mark": {
         "type": "point",
         "filled": true,
