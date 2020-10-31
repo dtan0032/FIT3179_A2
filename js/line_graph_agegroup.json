@@ -24,20 +24,9 @@
     {
       "mark": {
         "type": "text",
-        "align": "left",
-        "dx": 41,
-        "dy": -100,
-        "text": "75+ years old ",
-        "color": "indianred",
-        "fontSize": 15
-      }
-    },
-    {
-      "mark": {
-        "type": "text",
-        "align": "left",
-        "dx": -50,
-        "dy": -100,
+        "align": "right",
+        "dx": 15,
+        "dy": -160,
         "text": "Age group of ",
         "color": "black",
         "fontSize": 15
@@ -46,9 +35,21 @@
     {
       "mark": {
         "type": "text",
-        "align": "left",
-        "dx": 135,
-        "dy": -100,
+        "align": "right",
+        "dx": 110,
+        "dy": -160,
+        "text": "75+ years old ",
+        "color": "goldenrod",
+        "fontSize": 15
+      }
+    },
+    
+    {
+      "mark": {
+        "type": "text",
+        "align": "right",
+        "dx": 230,
+        "dy": -160,
         "text": " were consistently ",
         "color": "black",
         "fontSize": 15
@@ -57,9 +58,9 @@
     {
       "mark": {
         "type": "text",
-        "align": "left",
-        "dx": 80,
-        "dy": -85,
+        "align": "right",
+        "dx": 230,
+        "dy": -145,
         "text": "higher than all other age groups.",
         "color": "black",
         "fontSize": 15
