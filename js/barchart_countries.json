@@ -71,13 +71,14 @@
       }
     }
   },
-  {
-      "mark": {"type": "rule", "color": "Black","size":1},"title":null,
+    {
+      "mark": {"type": "rule", "color": "Black","size":1},
       "encoding": {
         "x": {
           "aggregate": "average",
           "field": "Suicides /100k Population Average",
-          "type": "quantitative"
+          "type": "quantitative",
+          "title": "Suicides /100k Population"
         }
       }
     }],
