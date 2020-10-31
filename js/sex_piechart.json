@@ -6,11 +6,6 @@
   },
   "width":600,
   "height":400,
-  "title":{
-    "text": "Suicide Ratio by Gender",
-    "anchor":"middle",
-    "fontSize":25
-    },
   "transform": [
     {
       "aggregate": [{"op": "sum", "field": "suicides_no", "as": "suicides_no"}],
@@ -32,7 +27,7 @@
         "dy": 55,
         "text": "Male: 76.9%",
         "color": "black",
-        "fontSize": 25
+        "fontSize": 35
     }
   },
   {
@@ -43,7 +38,7 @@
         "dy": -70,
         "text": "Female: 23.1%",
         "color": "black",
-        "fontSize": 15
+        "fontSize": 20
     }
   }],
   "view": {"stroke": null},
