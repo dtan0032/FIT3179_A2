@@ -4,8 +4,8 @@
   "data": {
     "url": "https://raw.githubusercontent.com/dtan0032/FIT3179_A2/main/data/master_updated.csv"
   },
-  "height": 300,
-  "width": 600,
+  "height": 400,
+  "width": 500,
   "layer": [
     {
       "mark": {"type": "line", "point": true, "tooltip": true},
