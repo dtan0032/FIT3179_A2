@@ -24,7 +24,7 @@
         "type": "ordinal",
         "axis": {
           "grid": false,
-          "labelAngle":90
+          "labelAngle":-45
           },
           "title":"Year"
         },
