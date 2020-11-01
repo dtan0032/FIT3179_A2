@@ -18,7 +18,13 @@
           "title": "Average of suicides/100k Population",
           "axis":{"grid":false}
         },
-        "color": {"field": "age", "type": "nominal", "title":"Age Group"}
+        "color": {"field": "age", 
+          "type": "nominal", 
+          "title":"Age Group",
+          "scale":{
+            "domain":["5-14 years","15-24 years","25-34 years","35-54 years","55-74 years","75+ years"]
+          }
+        }
       }
     },
     {
