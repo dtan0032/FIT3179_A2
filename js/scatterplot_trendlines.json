@@ -37,11 +37,15 @@
           "field": "HDI",
           "type": "quantitative",
           "axis":{"grid": false},
-          "title":"Human Development Index"
+          "title":"Human Development Index (HDI)"
         },
         "y": {"field": "suicides/100k pop", "type": "quantitative",
-          "axis":{"grid": false}, "title":"Suicides/100K population"},
-        "color": {"field": "continent", "type": "nominal", "title":"Continent"}
+          "axis":{"grid": false}, "title":"Suicides/100K Population"},
+        "color": {"field": "continent", "type": "nominal", "title":"Continent"},
+        "tooltip": [{"field": "country", "type": "nominal", "title":"Country"},
+          {"field": "continent", "type": "nominal", "title": "Continent"},
+          {"field": "HDI", "type": "quantitative"},
+          {"field": "suicides/100k pop", "type": "quantitative","title":"Suicides/100K Pop"}]
       }
     }
   ],
